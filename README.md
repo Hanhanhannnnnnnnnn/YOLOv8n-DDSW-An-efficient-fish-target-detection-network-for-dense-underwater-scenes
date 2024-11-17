@@ -74,7 +74,7 @@ class C2f(nn.Module):
 
 YOLOv8 uses CIOU for calculating the regression loss of the bounding box. This loss function evaluates the resemblance between two bounding boxes based on the position, size and angle differences between them and calculates positioning loss.
 
-![](docs/2.png)
+![](2.png)
 
  b^A and b^B represent the centroids of prediction and real frames, respectively; ρ stands for the Euclidean distance between both points; ρ denotes the diagonal length of the smallest outer rectangle of prediction and real frames; α refers to a balancing parameter. 
 
@@ -82,7 +82,7 @@ YOLOv8 uses CIOU for calculating the regression loss of the bounding box. This l
 
 ### 2.YOLOv8n-DDSW
 The YOLOv8n-DDSW object detection algorithm has been improved as follows: (1) deformable convolution is introduced into the backbone C2f structure; (2) the DPSE channel attention mechanism is introduced at the Neck end; (3) a small object detection head is introduced at the Head end; (4) the Wise-IOU loss function is used instead of the original loss function.
-![](docs/6.png)
+![](6.png)
 
 + **C2f-DCN**
  The standard convolution in C2f is only suitable for detecting some static targets with regular shapes and low complexity. Therefore, deformable convolution and deformable pooling are introduced into the bottleneck structure of C2f.
@@ -160,7 +160,7 @@ head:
 + **Wise-IOU** 
 The YOLOv8 model's CIOU loss function uses a monotonic focusing mechanism that does not take into account the balance between easy and difficult samples. When the training samples contain low-quality targets, the model's detection performance will decrease. This algorithm model introduces the Wise-IOU loss function with a dynamic non-monotonic focusing mechanism to balance the samples.
 
-![](docs/3.png)
+![](3.png)
 Where L_IoU∈[0,1] represents the IOU loss that will attenuate the penalty term for high-quality anchor frames. R_WIOU∈[0,exp] represents the Wise-IOU penalty term that strengthens the loss of normal-quality anchor frames. The superscript * represents not participating in backpropagation. ¯(L_IOU ) is a normalization factor representing the sliding average of the increments. β represents the degree of outliers, where smaller values imply higher-quality anchor frames.
 
 ### 3.Experimental dataset
@@ -276,9 +276,9 @@ We have made a simple modification to the hyperparameters of the training, which
 ### 5.YOLOv8n-DDSW Training for object detection tasks
 
 After 130 rounds of training, the model converged. Good results were achieved on both the training set and the validation set. Box_loss, cls_loss and dfl_loss represent anchor box loss, classification loss and distribution focus loss respectively. The smaller the loss value, the more accurate the classification.
-![](docs/4.png)
-![](docs/5.png)
-![](docs/8.png)
+![](4.png)
+![](5.png)
+![](8.png)
 
 
 
