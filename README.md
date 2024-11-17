@@ -2,7 +2,7 @@
 
 ### 1. YOLOv8
 
-![](docs/1.png)
+![](1.png)
 
 The YOLOv8 object detection algorithm was released by the ultralytics team in 2023. It adopts a top-down convolutional neural network structure, which can efficiently detect a wide variety of objects and support multi-class classification tasks. YOLOv8 has the following improvements over other YOLO series algorithms:
 
